@@ -1,0 +1,7 @@
+# Copiar este fichero como config.properties y rellenar los valores
+api.url=https://mcp.acesapi.com/v1/
+api.key=TU_API_KEY
+
+db.url=jdbc:mysql://localhost:3306/tenisdle
+db.user=root
+db.password=

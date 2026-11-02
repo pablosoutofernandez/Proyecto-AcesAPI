@@ -1,0 +1,7 @@
+target/
+.idea/
+*.iml
+out/
+
+# Contiene la API key y la contrasena de MySQL
+config.properties
