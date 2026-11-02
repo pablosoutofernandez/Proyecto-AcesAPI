@@ -2,6 +2,10 @@
 api.url=https://mcp.acesapi.com/v1/
 api.key=TU_API_KEY
 
-db.url=jdbc:mysql://localhost:3306/tenisdle
+# Numero de tenistas del ranking que se descargan la primera vez
+api.num_tenistas=100
+
+# createDatabaseIfNotExist crea la BD tenisdle si no existe
+db.url=jdbc:mysql://localhost:3306/tenisdle?createDatabaseIfNotExist=true
 db.user=root
 db.password=
