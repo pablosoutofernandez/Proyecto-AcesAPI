@@ -13,7 +13,16 @@ import java.util.stream.Collectors;
  */
 public class TenistaService {
 
-    private TenistaRepository repo = new TenistaRepository();
+    private TenistaRepository repo;
+
+    public TenistaService() {
+        this(new TenistaRepository());
+    }
+
+    // Permite pasar un repositorio falso en los tests
+    TenistaService(TenistaRepository repo) {
+        this.repo = repo;
+    }
 
     public void crear(Tenista t) {
         validar(t);

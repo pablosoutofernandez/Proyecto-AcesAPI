@@ -22,12 +22,22 @@ public class JuegoService {
 
     public static final int MAX_INTENTOS = 8;
 
-    private TenistaRepository tenistaRepo = new TenistaRepository();
-    private PartidaRepository partidaRepo = new PartidaRepository();
+    private TenistaRepository tenistaRepo;
+    private PartidaRepository partidaRepo;
 
     private Tenista secreto;
     private List<Intento> intentos = new ArrayList<>();
     private boolean terminada = true;
+
+    public JuegoService() {
+        this(new TenistaRepository(), new PartidaRepository());
+    }
+
+    // Permite pasar repositorios falsos en los tests
+    JuegoService(TenistaRepository tenistaRepo, PartidaRepository partidaRepo) {
+        this.tenistaRepo = tenistaRepo;
+        this.partidaRepo = partidaRepo;
+    }
 
     public void nuevaPartida() {
         List<Tenista> tenistas = tenistaRepo.buscarTodos();
