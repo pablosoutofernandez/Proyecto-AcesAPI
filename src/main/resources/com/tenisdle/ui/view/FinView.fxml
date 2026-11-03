@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tenisdle.ui.controller.FinController"
+      styleClass="pantalla" alignment="TOP_CENTER" spacing="15">
+
+    <!-- Resultado -->
+    <Label fx:id="lblTitulo" styleClass="titulo"/>
+    <Label fx:id="lblSubtitulo" styleClass="subtitulo"/>
+
+    <!-- Ficha del tenista secreto -->
+    <VBox styleClass="ficha" alignment="CENTER" spacing="8" maxWidth="360">
+        <Label text="El tenista secreto era" styleClass="subtitulo"/>
+        <Label fx:id="lblNombre" styleClass="ficha-nombre"/>
+        <GridPane hgap="20" vgap="4" alignment="CENTER">
+            <Label text="Pais" styleClass="ficha-etiqueta" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="lblPais" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Edad" styleClass="ficha-etiqueta" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="lblEdad" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Mano" styleClass="ficha-etiqueta" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="lblMano" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Ranking" styleClass="ficha-etiqueta" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="lblRanking" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            <Label text="Puntos" styleClass="ficha-etiqueta" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Label fx:id="lblPuntos" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        </GridPane>
+    </VBox>
+
+    <!-- Resumen de los intentos (mismas filas que en la partida) -->
+    <Label text="Tus intentos" styleClass="subtitulo"/>
+    <ScrollPane fitToWidth="true" styleClass="zona-intentos" VBox.vgrow="ALWAYS">
+        <VBox fx:id="filasIntentos" spacing="6"/>
+    </ScrollPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Jugar otra vez" styleClass="boton-principal" onAction="#onJugarOtraVez"/>
+        <Button text="Volver al inicio" onAction="#onVolverInicio"/>
+    </HBox>
+</VBox>

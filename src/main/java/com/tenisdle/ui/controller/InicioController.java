@@ -37,7 +37,16 @@ public class InicioController implements Controlador {
     public void init(ContextoApp contexto, Navegador navegador) {
         this.contexto = contexto;
         this.navegador = navegador;
-        cargarDatos();
+
+        // Si se vuelve al inicio despues de jugar, los tenistas ya estan cargados
+        if (!contexto.getTenistas().isEmpty()) {
+            lblEstado.setText(contexto.getTenistas().size() + " tenistas cargados");
+            progreso.setVisible(false);
+            btnReintentar.setVisible(false);
+            btnJugar.setDisable(false);
+        } else {
+            cargarDatos();
+        }
     }
 
     private void cargarDatos() {

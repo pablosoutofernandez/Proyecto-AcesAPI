@@ -40,17 +40,15 @@ public class JuegoController implements Controlador {
     private Button btnIntentar;
     @FXML
     private VBox filasIntentos;
-    @FXML
-    private Label lblResultado;
-    @FXML
-    private Button btnNuevaPartida;
 
     private JuegoService juego;
+    private Navegador navegador;
     private FilteredList<Tenista> sugerencias;
 
     @Override
     public void init(ContextoApp contexto, Navegador navegador) {
         this.juego = contexto.getJuegoService();
+        this.navegador = navegador;
         configurarBuscador(contexto);
         nuevaPartida();
     }
@@ -79,11 +77,6 @@ public class JuegoController implements Controlador {
         });
     }
 
-    @FXML
-    private void onNuevaPartida() {
-        nuevaPartida();
-    }
-
     private void nuevaPartida() {
         setBuscadorActivo(false);
 
@@ -98,8 +91,6 @@ public class JuegoController implements Controlador {
         tarea.setOnSucceeded(e -> {
             filasIntentos.getChildren().clear();
             txtBuscar.clear();
-            lblResultado.setText("");
-            btnNuevaPartida.setVisible(false);
             actualizarContador();
             setBuscadorActivo(true);
             txtBuscar.requestFocus();
@@ -139,7 +130,7 @@ public class JuegoController implements Controlador {
             txtBuscar.clear();
             actualizarContador();
             if (juego.isTerminada()) {
-                mostrarFinal();
+                navegador.mostrar("FinView.fxml");
             } else {
                 setBuscadorActivo(true);
                 txtBuscar.requestFocus();
@@ -156,15 +147,6 @@ public class JuegoController implements Controlador {
             setBuscadorActivo(true);
         });
         Tareas.ejecutar(tarea);
-    }
-
-    private void mostrarFinal() {
-        if (juego.isGanada()) {
-            lblResultado.setText("Has acertado en " + juego.getIntentos().size() + " intentos!");
-        } else {
-            lblResultado.setText("Has perdido. Era " + juego.getSecreto().getNombre());
-        }
-        btnNuevaPartida.setVisible(true);
     }
 
     private void actualizarContador() {

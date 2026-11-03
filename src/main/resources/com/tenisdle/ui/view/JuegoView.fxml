@@ -45,12 +45,5 @@
         </ScrollPane>
     </center>
 
-    <!-- Abajo: resultado al terminar -->
-    <bottom>
-        <HBox spacing="20" alignment="CENTER" styleClass="zona-resultado">
-            <Label fx:id="lblResultado" styleClass="resultado"/>
-            <Button fx:id="btnNuevaPartida" text="Nueva partida" styleClass="boton-principal"
-                    visible="false" onAction="#onNuevaPartida"/>
-        </HBox>
-    </bottom>
+    <!-- Al terminar la partida se pasa a FinView.fxml -->
 </BorderPane>
