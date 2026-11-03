@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tenisdle.ui.controller.InicioController"
+      styleClass="pantalla" alignment="CENTER" spacing="20">
+
+    <Label text="Tenisdle" styleClass="titulo"/>
+    <Label text="Adivina el tenista del ranking ATP" styleClass="subtitulo"/>
+
+    <ProgressIndicator fx:id="progreso"/>
+    <Label fx:id="lblEstado" styleClass="estado"/>
+
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="btnJugar" text="Jugar" styleClass="boton-principal" onAction="#onJugar"/>
+        <Button fx:id="btnReintentar" text="Reintentar" onAction="#onReintentar"/>
+    </HBox>
+</VBox>

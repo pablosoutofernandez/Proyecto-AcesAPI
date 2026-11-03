@@ -2,6 +2,7 @@ target/
 .idea/
 *.iml
 out/
+CLAUDE.md
 
 # Contiene la API key y la contrasena de MySQL
 config.properties

@@ -1,0 +1,62 @@
+/* Estilos de toda la aplicacion */
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -color-fondo: #f4f6f8;
+    -color-principal: #2e7d32;
+}
+
+.pantalla {
+    -fx-background-color: -color-fondo;
+    -fx-padding: 30;
+}
+
+.titulo {
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-principal;
+}
+
+.subtitulo {
+    -fx-font-size: 16px;
+    -fx-text-fill: #555555;
+}
+
+.estado {
+    -fx-text-fill: #333333;
+}
+
+.boton-principal {
+    -fx-background-color: -color-principal;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 24;
+    -fx-cursor: hand;
+}
+
+.boton-principal:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* Casillas de pistas de la pantalla de partida (siguiente paso) */
+
+.casilla {
+    -fx-padding: 8;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+}
+
+.acierto {
+    -fx-background-color: #43a047;
+}
+
+.fallo {
+    -fx-background-color: #9e9e9e;
+}
+
+.mayor, .menor {
+    -fx-background-color: #ef6c00;
+}
