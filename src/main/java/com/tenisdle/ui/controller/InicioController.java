@@ -6,6 +6,7 @@ import com.tenisdle.ui.ContextoApp;
 import com.tenisdle.ui.Controlador;
 import com.tenisdle.ui.Navegador;
 import com.tenisdle.ui.util.Alertas;
+import com.tenisdle.ui.util.Tareas;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -82,15 +83,12 @@ public class InicioController implements Controlador {
             Alertas.error("Error al cargar los datos", Alertas.mensajeDe(tarea.getException()));
         });
 
-        Thread hilo = new Thread(tarea);
-        hilo.setDaemon(true); // para que no impida cerrar la aplicacion
-        hilo.start();
+        Tareas.ejecutar(tarea);
     }
 
     @FXML
     private void onJugar() {
-        // TODO: navegador.mostrar("JuegoView.fxml") cuando exista la pantalla de partida
-        Alertas.info("Pendiente", "La pantalla de partida todavia no esta hecha.");
+        navegador.mostrar("JuegoView.fxml");
     }
 
     @FXML

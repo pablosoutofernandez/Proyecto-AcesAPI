@@ -39,11 +39,61 @@
     -fx-opacity: 0.5;
 }
 
-/* Casillas de pistas de la pantalla de partida (siguiente paso) */
+/* Pantalla de partida */
+
+.titulo-pequeno {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-principal;
+}
+
+.contador {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.zona-buscador {
+    -fx-padding: 0 0 15 0;
+}
+
+.zona-intentos {
+    -fx-background-color: transparent;
+    -fx-background: -color-fondo;
+}
+
+.zona-resultado {
+    -fx-padding: 15 0 0 0;
+}
+
+.resultado {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.fila {
+    -fx-spacing: 6;
+}
+
+/* Cabecera y casillas tienen el mismo ancho para que las columnas cuadren */
+.cabecera, .casilla {
+    -fx-pref-width: 110;
+    -fx-min-width: 110;
+    -fx-min-height: 40;
+    -fx-alignment: center;
+    -fx-padding: 8;
+}
+
+.cabecera {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.casilla-nombre {
+    -fx-pref-width: 200;
+    -fx-min-width: 200;
+}
 
 .casilla {
-    -fx-padding: 8;
-    -fx-alignment: center;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-background-radius: 4;

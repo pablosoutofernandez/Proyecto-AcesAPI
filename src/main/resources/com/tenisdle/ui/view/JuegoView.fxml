@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.tenisdle.ui.controller.JuegoController"
+            styleClass="pantalla">
+
+    <!-- Arriba: titulo, contador y buscador -->
+    <top>
+        <VBox spacing="10" styleClass="zona-buscador">
+            <HBox spacing="20" alignment="CENTER_LEFT">
+                <Label text="Tenisdle" styleClass="titulo-pequeno"/>
+                <Label fx:id="lblIntentos" styleClass="contador"/>
+            </HBox>
+            <HBox spacing="10">
+                <TextField fx:id="txtBuscar" promptText="Escribe el nombre de un tenista..." HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnIntentar" text="Intentar" styleClass="boton-principal" onAction="#onIntentar"/>
+            </HBox>
+            <ListView fx:id="lstSugerencias" prefHeight="130" styleClass="sugerencias"/>
+        </VBox>
+    </top>
+
+    <!-- Centro: cabecera de columnas y una fila por intento -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="zona-intentos">
+            <VBox spacing="6">
+                <HBox styleClass="fila">
+                    <Label text="Tenista" styleClass="cabecera, casilla-nombre"/>
+                    <Label text="Pais" styleClass="cabecera"/>
+                    <Label text="Edad" styleClass="cabecera"/>
+                    <Label text="Mano" styleClass="cabecera"/>
+                    <Label text="Ranking" styleClass="cabecera"/>
+                    <Label text="Puntos" styleClass="cabecera"/>
+                </HBox>
+                <VBox fx:id="filasIntentos" spacing="6"/>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Abajo: resultado al terminar -->
+    <bottom>
+        <HBox spacing="20" alignment="CENTER" styleClass="zona-resultado">
+            <Label fx:id="lblResultado" styleClass="resultado"/>
+            <Button fx:id="btnNuevaPartida" text="Nueva partida" styleClass="boton-principal"
+                    visible="false" onAction="#onNuevaPartida"/>
+        </HBox>
+    </bottom>
+</BorderPane>
