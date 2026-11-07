@@ -2,6 +2,7 @@ package com.tenisdle.ui.util;
 
 import com.tenisdle.database.BaseDatosException;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 import java.io.IOException;
 
@@ -19,6 +20,18 @@ public final class Alertas {
 
     public static void info(String titulo, String mensaje) {
         mostrar(Alert.AlertType.INFORMATION, titulo, mensaje);
+    }
+
+    /**
+     * Pregunta al usuario y devuelve true si pulsa Aceptar.
+     */
+    public static boolean confirmar(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(titulo);
+        alerta.setContentText(mensaje);
+        // showAndWait() espera a que se cierre el dialogo y devuelve el boton pulsado
+        return alerta.showAndWait().filter(boton -> boton == ButtonType.OK).isPresent();
     }
 
     /**

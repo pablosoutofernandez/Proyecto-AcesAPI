@@ -78,6 +78,11 @@ public class FinController implements Controlador {
     }
 
     @FXML
+    private void onEstadisticas() {
+        navegador.mostrar("EstadisticasView.fxml");
+    }
+
+    @FXML
     private void onVolverInicio() {
         navegador.mostrar("InicioView.fxml");
     }

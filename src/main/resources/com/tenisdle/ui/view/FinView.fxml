@@ -41,6 +41,7 @@
 
     <HBox spacing="10" alignment="CENTER">
         <Button text="Jugar otra vez" styleClass="boton-principal" onAction="#onJugarOtraVez"/>
+        <Button text="Estadisticas" onAction="#onEstadisticas"/>
         <Button text="Volver al inicio" onAction="#onVolverInicio"/>
     </HBox>
 </VBox>

@@ -18,6 +18,7 @@
 
     <HBox alignment="CENTER" spacing="10">
         <Button fx:id="btnJugar" text="Jugar" styleClass="boton-principal" onAction="#onJugar"/>
+        <Button fx:id="btnEstadisticas" text="Estadisticas" onAction="#onEstadisticas"/>
         <Button fx:id="btnReintentar" text="Reintentar" onAction="#onReintentar"/>
     </HBox>
 </VBox>

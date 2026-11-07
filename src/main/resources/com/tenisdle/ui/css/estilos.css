@@ -129,3 +129,25 @@
     -fx-font-weight: bold;
     -fx-text-fill: #555555;
 }
+
+/* Pantalla de estadisticas */
+
+.tarjeta {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #dddddd;
+    -fx-border-radius: 8;
+    -fx-padding: 15;
+    -fx-pref-width: 200;
+    -fx-spacing: 4;
+}
+
+.tarjeta-numero {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-principal;
+}
+
+.tarjeta-texto {
+    -fx-text-fill: #555555;
+}

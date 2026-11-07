@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tenisdle.ui.controller.EstadisticasController"
+      styleClass="pantalla" alignment="TOP_CENTER" spacing="20">
+
+    <Label text="Estadisticas" styleClass="titulo"/>
+
+    <!-- Tarjetas con los numeros que calcula JuegoService -->
+    <HBox spacing="15" alignment="CENTER">
+        <VBox styleClass="tarjeta" alignment="CENTER">
+            <Label fx:id="lblPartidas" text="-" styleClass="tarjeta-numero"/>
+            <Label text="Partidas jugadas" styleClass="tarjeta-texto"/>
+        </VBox>
+        <VBox styleClass="tarjeta" alignment="CENTER">
+            <Label fx:id="lblVictorias" text="-" styleClass="tarjeta-numero"/>
+            <Label text="Victorias" styleClass="tarjeta-texto"/>
+        </VBox>
+        <VBox styleClass="tarjeta" alignment="CENTER">
+            <Label fx:id="lblMedia" text="-" styleClass="tarjeta-numero"/>
+            <Label text="Media de intentos al ganar" styleClass="tarjeta-texto"/>
+        </VBox>
+    </HBox>
+
+    <!-- Historial de partidas, la mas reciente arriba -->
+    <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS"/>
+        </columnResizePolicy>
+        <columns>
+            <TableColumn fx:id="colFecha" text="Fecha"/>
+            <TableColumn fx:id="colTenista" text="Tenista"/>
+            <TableColumn fx:id="colIntentos" text="Intentos"/>
+            <TableColumn fx:id="colResultado" text="Resultado"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="btnVolver" text="Volver al inicio" styleClass="boton-principal" onAction="#onVolver"/>
+        <Button fx:id="btnBorrar" text="Borrar historial" onAction="#onBorrar"/>
+    </HBox>
+</VBox>

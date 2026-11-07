@@ -28,6 +28,8 @@ public class InicioController implements Controlador {
     @FXML
     private Button btnJugar;
     @FXML
+    private Button btnEstadisticas;
+    @FXML
     private Button btnReintentar;
 
     private ContextoApp contexto;
@@ -44,6 +46,7 @@ public class InicioController implements Controlador {
             progreso.setVisible(false);
             btnReintentar.setVisible(false);
             btnJugar.setDisable(false);
+            btnEstadisticas.setDisable(false);
         } else {
             cargarDatos();
         }
@@ -51,6 +54,7 @@ public class InicioController implements Controlador {
 
     private void cargarDatos() {
         btnJugar.setDisable(true);
+        btnEstadisticas.setDisable(true);
         btnReintentar.setVisible(false);
         progreso.setVisible(true);
 
@@ -82,6 +86,7 @@ public class InicioController implements Controlador {
             lblEstado.setText(tenistas.size() + " tenistas cargados");
             progreso.setVisible(false);
             btnJugar.setDisable(false);
+            btnEstadisticas.setDisable(false);
         });
 
         tarea.setOnFailed(e -> {
@@ -98,6 +103,11 @@ public class InicioController implements Controlador {
     @FXML
     private void onJugar() {
         navegador.mostrar("JuegoView.fxml");
+    }
+
+    @FXML
+    private void onEstadisticas() {
+        navegador.mostrar("EstadisticasView.fxml");
     }
 
     @FXML
