@@ -157,3 +157,13 @@
 .barra-herramientas {
     -fx-padding: 0 0 10 0;
 }
+
+.panel-lateral {
+    -fx-padding: 0 0 0 15;
+    -fx-pref-width: 220;
+}
+
+.panel-titulo {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}

@@ -43,6 +43,10 @@ public final class Alertas {
             return "No se encuentra el archivo config.properties.\n"
                     + "Copia config.properties.example como config.properties en la carpeta del proyecto y rellenalo.";
         }
+        // Errores de validacion de TenistaService: su mensaje ya es para el usuario
+        if (e instanceof IllegalArgumentException) {
+            return e.getMessage();
+        }
         if (e instanceof BaseDatosException) {
             return "No se puede acceder a la base de datos MySQL.\n"
                     + "Comprueba que el servidor esta arrancado y que el usuario y la contrasena de config.properties son correctos.";

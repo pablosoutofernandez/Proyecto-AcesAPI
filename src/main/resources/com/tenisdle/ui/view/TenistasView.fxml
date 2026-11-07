@@ -2,10 +2,13 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.tenisdle.ui.controller.TenistasController"
@@ -34,6 +37,22 @@
             </columns>
         </TableView>
     </center>
+
+    <!-- Derecha: CRUD (buscar por id, nuevo, modificar, borrar) -->
+    <right>
+        <VBox fx:id="panel" spacing="8" styleClass="panel-lateral">
+            <Label text="Buscar por id" styleClass="panel-titulo"/>
+            <TextField fx:id="txtId" promptText="Id del tenista" onAction="#onLeer"/>
+            <Button text="Leer" maxWidth="Infinity" onAction="#onLeer"/>
+
+            <Separator/>
+
+            <Label text="Gestion" styleClass="panel-titulo"/>
+            <Button text="Nuevo tenista" styleClass="boton-principal" maxWidth="Infinity" onAction="#onNuevo"/>
+            <Button fx:id="btnModificar" text="Modificar seleccionado" maxWidth="Infinity" onAction="#onModificar"/>
+            <Button fx:id="btnBorrar" text="Borrar seleccionado" maxWidth="Infinity" onAction="#onBorrar"/>
+        </VBox>
+    </right>
 
     <!-- Abajo: numero de resultados -->
     <bottom>
