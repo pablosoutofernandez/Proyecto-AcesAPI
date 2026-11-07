@@ -130,7 +130,7 @@ public class JuegoController implements Controlador {
             txtBuscar.clear();
             actualizarContador();
             if (juego.isTerminada()) {
-                navegador.mostrar("FinView.fxml");
+                navegador.mostrarEnJugar("FinView.fxml");
             } else {
                 setBuscadorActivo(true);
                 txtBuscar.requestFocus();

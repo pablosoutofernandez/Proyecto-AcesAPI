@@ -102,12 +102,12 @@ public class InicioController implements Controlador {
 
     @FXML
     private void onJugar() {
-        navegador.mostrar("JuegoView.fxml");
+        navegador.abrirPrincipal("JuegoView.fxml");
     }
 
     @FXML
     private void onEstadisticas() {
-        navegador.mostrar("EstadisticasView.fxml");
+        navegador.abrirPrincipal("EstadisticasView.fxml");
     }
 
     @FXML

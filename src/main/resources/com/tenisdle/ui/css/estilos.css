@@ -151,3 +151,9 @@
 .tarjeta-texto {
     -fx-text-fill: #555555;
 }
+
+/* Pestana Tenistas */
+
+.barra-herramientas {
+    -fx-padding: 0 0 10 0;
+}

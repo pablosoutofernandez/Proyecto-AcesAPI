@@ -74,12 +74,12 @@ public class FinController implements Controlador {
     @FXML
     private void onJugarOtraVez() {
         // JuegoController.init() ya empieza una partida nueva
-        navegador.mostrar("JuegoView.fxml");
+        navegador.mostrarEnJugar("JuegoView.fxml");
     }
 
     @FXML
     private void onEstadisticas() {
-        navegador.mostrar("EstadisticasView.fxml");
+        navegador.mostrarEnJugar("EstadisticasView.fxml");
     }
 
     @FXML

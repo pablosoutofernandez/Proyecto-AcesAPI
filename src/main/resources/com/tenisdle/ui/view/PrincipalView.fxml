@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<!-- El contenido de cada pestana lo pone el codigo:
+     "Jugar" con Navegador.mostrarEnJugar y "Tenistas" la primera vez que se selecciona -->
+<TabPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="com.tenisdle.ui.controller.PrincipalController"
+         tabClosingPolicy="UNAVAILABLE">
+    <tabs>
+        <Tab fx:id="tabJugar" text="Jugar"/>
+        <Tab fx:id="tabTenistas" text="Tenistas"/>
+    </tabs>
+</TabPane>
