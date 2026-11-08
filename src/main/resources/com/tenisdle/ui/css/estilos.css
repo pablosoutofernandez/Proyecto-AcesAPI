@@ -167,3 +167,7 @@
     -fx-font-weight: bold;
     -fx-text-fill: #333333;
 }
+
+.barra-inferior {
+    -fx-padding: 10 0 0 0;
+}

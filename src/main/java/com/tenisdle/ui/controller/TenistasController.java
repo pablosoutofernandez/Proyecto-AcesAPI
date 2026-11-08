@@ -2,6 +2,7 @@ package com.tenisdle.ui.controller;
 
 import com.tenisdle.model.Tenista;
 import com.tenisdle.service.TenistaService;
+import com.tenisdle.storage.ExportadorCsv;
 import com.tenisdle.ui.nucleo.ContextoApp;
 import com.tenisdle.ui.nucleo.Controlador;
 import com.tenisdle.ui.nucleo.Navegador;
@@ -23,7 +24,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -98,6 +102,12 @@ public class TenistasController implements Controlador {
 
     // Texto que muestra la tabla cuando no hay filas
     private final Label lblVacio = new Label("Sin resultados");
+
+    @FXML
+    private Button btnExportar;
+
+    // Exportador del backend (paquete storage)
+    private final ExportadorCsv exportador = new ExportadorCsv();
 
     private TenistaService servicio;
     private ContextoApp contexto;
@@ -235,6 +245,8 @@ public class TenistasController implements Controlador {
             lblVacio.setText(textoSiVacio);
             tabla.setItems(FXCollections.observableArrayList(resultado));
             lblResultados.setText(resultado.size() + " resultados");
+            // No tiene sentido exportar una tabla vacia
+            btnExportar.setDisable(resultado.isEmpty());
             setControlesActivos(true);
             alTerminar.run();
         });
@@ -268,6 +280,43 @@ public class TenistasController implements Controlador {
     private void onVerTodos() {
         limpiarFiltros();
         mostrarResultado(servicio::listarTodos);
+    }
+
+    // ---------- Exportar ----------
+
+    /**
+     * Guarda en un CSV las filas que se ven en la tabla (resultado de la ultima consulta)
+     * usando ExportadorCsv del backend.
+     */
+    @FXML
+    private void onExportarCsv() {
+        // Copia de las filas: la tabla podria cambiar mientras se escribe el archivo
+        List<Tenista> filas = new ArrayList<>(tabla.getItems());
+
+        // Dialogo "Guardar como" del sistema operativo
+        FileChooser selector = new FileChooser();
+        selector.setTitle("Exportar tenistas a CSV");
+        selector.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV (*.csv)", "*.csv"));
+        selector.setInitialFileName("tenistas.csv");
+        File fichero = selector.showSaveDialog(tabla.getScene().getWindow());
+        if (fichero == null) {
+            return; // el usuario ha cancelado
+        }
+
+        // Escribir un archivo puede tardar, asi que va en otro hilo
+        Task<String> tarea = new Task<>() {
+            @Override
+            protected String call() throws IOException {
+                return exportador.exportar(filas, fichero.getAbsolutePath());
+            }
+        };
+        tarea.setOnSucceeded(e -> Alertas.info("Exportacion completada",
+                "Se han exportado " + filas.size() + " tenistas a\n" + tarea.getValue()));
+        // Aqui el error es de escritura del archivo (sin permisos, archivo abierto en Excel...),
+        // por eso se muestra su mensaje directamente
+        tarea.setOnFailed(e -> Alertas.error("No se ha podido exportar",
+                "No se ha podido escribir el archivo:\n" + tarea.getException().getMessage()));
+        Tareas.ejecutar(tarea);
     }
 
     // ---------- Busquedas y filtros ----------
