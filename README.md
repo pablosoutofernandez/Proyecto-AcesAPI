@@ -43,3 +43,7 @@ Diagrama entidad-relación (notación Crow's Foot) de la BD `tenisdle`:
 - **tenistas**: datos de cada tenista descargados de la API (PK `id`).
 - **partidas**: cada partida jugada, asociada a un tenista mediante la FK `tenista_id` (`ON DELETE CASCADE`).
 - Relación 1:N: un tenista puede tener 0..N partidas; cada partida pertenece a exactamente un tenista.
+
+## Conclusiones
+
+Pablo Souto: Ha sido un proyecto entretenido de realizar y sin mucha complejidad técnica ya que las técnicas utilizadas no son nuevas para mí. Desarrollar el backend me llevó un par de días, y la calificación que espero ronda el 7,5.
