@@ -55,6 +55,29 @@ https://github.com/user-attachments/assets/b6cccfbb-a7da-4b52-abe8-320490745183
 
 ## Explicación del reparto de las tareas entre ambos integrantes.
 
+Nos repartimos el trabajo por capas: uno se encargó del backend y el otro del frontend. Así cada uno podía avanzar en su parte sin pisar el código del otro. La conexión entre las dos partes son los servicios Java, que la interfaz llama directamente.
+
+**Pablo Souto (backend)**: hizo toda la parte que trabaja con los datos:
+- el modelo (`Tenista`, `Partida`, `Intento`, `Pista`…) y los DTOs de la API;
+- la configuración (`config.properties`) y la conexión con MySQL, con la creación automática de las tablas;
+- el cliente de AcesAPI;
+- los repositorios con el CRUD de tenistas y partidas;
+- los servicios:
+  - `CargaDatosService`, que descarga los datos la primera vez y después los lee de la base de datos;
+  - `TenistaService`, con las consultas, filtros, ordenaciones y estadísticas;
+  - `JuegoService`, con la lógica del juego y el historial;
+- la exportación a CSV y JSON, la versión de consola (`MainConsola`) y los tests del backend.
+
+**Marcos Antonio González Flores (frontend)**: hizo toda la interfaz gráfica con JavaFX (paquete `com.tenisdle.ui`).
+- **Estructura:** patrón MVC con vistas FXML, un controlador por pantalla y estilos en CSS. Una clase `Navegador` cambia de pantalla y un `ContextoApp` comparte los servicios entre pantallas.
+- **Pantallas:**
+  - de inicio, con la carga de datos en segundo plano;
+  - de partida, con buscador, contador de intentos y las pistas de colores con flechas;
+  - de fin de partida;
+  - de estadísticas del historial.
+- **Pestaña "Tenistas":** CRUD completo, búsquedas, filtros, ordenaciones y estadísticas.
+- **Comportamiento común:** todas las consultas a la base de datos van en segundo plano (`Task`) para que la ventana no se congele, y los errores se muestran con mensajes claros en lugar de cerrar la aplicación.
+- **Tests:** los de la lógica de la interfaz.
 
 
 ## Propuestas de mejora: nuevas opciones, control de errores...
