@@ -92,4 +92,6 @@ Nos repartimos el trabajo por capas: uno se encargó del backend y el otro del f
 
 ## Conclusiones y opinión del trabajo realizado.
 
-Pablo Souto: Ha sido un proyecto entretenido de realizar y sin mucha complejidad técnica ya que las técnicas utilizadas no son nuevas para mí. Desarrollar el backend me llevó un par de días, y lacalificación que espero ronda el 7,5. 
+Pablo Souto: Ha sido un proyecto entretenido de realizar y sin mucha complejidad técnica ya que las técnicas utilizadas no son nuevas para mí. Desarrollar el backend me llevó unos cuantos de días, y la calificación que espero ronda el 7,5.
+
+Marcos González Flores: En mi opinión el proyecto ha sido divertido de realizar, este tipo de juego nos suele gustar a mi compañero y a mí (probablemente hasta lo empecemos a jugar). El frontend quedó más o menos como me hubiese gustado, parecido a otros juegos del estilo. La nota que me espero es también sobre el 7,5 u 8.
