@@ -82,6 +82,11 @@ Nos repartimos el trabajo por capas: uno se encargó del backend y el otro del f
 
 ## Propuestas de mejora: nuevas opciones, control de errores...
 
+1. **Combinar filtros y ordenaciones.** Cada búsqueda carga todos los tenistas y no se pueden combinar. Por ejemplo, no se puede pedir "los zurdos españoles ordenados por edad". Una mejora sería un único método de búsqueda con varios criterios opcionales que genere la consulta SQL con `WHERE` y `ORDER BY`.
+
+2. **Nuevo modo de juego: "¿Quién tiene más?".** Se muestran dos tenistas y hay que adivinar cuál tiene más puntos, mejor ranking o más edad. Si aciertas, el ganador se queda y aparece un rival nuevo; el objetivo es encadenar la racha más larga posible. Reutiliza los datos que ya están en la base de datos, y la mejor racha se podría guardar como las partidas actuales para mostrarla en Estadísticas.
+
+3. **Reto diario y niveles de dificultad.** El reto diario sería un tenista secreto igual para todos ese día, elegido a partir de la fecha en lugar de al azar, con una sola partida por día, como en Wordle. Los niveles de dificultad podrían ser: fácil (solo el top 20 y más intentos), normal (como ahora) y difícil (todo el ranking, menos intentos y sin flechas ↑/↓ en las pistas).
 
 
 ## Conclusiones y opinión del trabajo realizado.
