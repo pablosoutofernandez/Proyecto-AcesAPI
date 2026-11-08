@@ -1,6 +1,7 @@
 package com.tenisdle.ui.componente;
 
 import com.tenisdle.model.Tenista;
+import com.tenisdle.ui.util.Campos;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -83,17 +84,7 @@ public class DialogoTenista extends Dialog<Tenista> {
                 txtPais.getText().trim().toUpperCase(),
                 dpFecha.getValue(),
                 cmbMano.getValue(),
-                leerNumero(spRanking),
-                leerNumero(spPuntos));
-    }
-
-    // Si el usuario escribe en el Spinner sin pulsar Enter, el valor aun no se ha guardado:
-    // se lee lo escrito y, si no es un numero, se usa el ultimo valor valido
-    private static int leerNumero(Spinner<Integer> spinner) {
-        try {
-            return Integer.parseInt(spinner.getEditor().getText().trim());
-        } catch (NumberFormatException e) {
-            return spinner.getValue();
-        }
+                Campos.leerNumero(spRanking),
+                Campos.leerNumero(spPuntos));
     }
 }

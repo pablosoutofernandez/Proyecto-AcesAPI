@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -14,9 +16,22 @@
             fx:controller="com.tenisdle.ui.controller.TenistasController"
             styleClass="pantalla">
 
-    <!-- Arriba: barra de busquedas, filtros y ordenaciones (se ira completando) -->
+    <!-- Arriba: busquedas, filtros y ordenaciones.
+         Cada control lanza una consulta distinta: no se combinan entre si -->
     <top>
         <HBox fx:id="barra" spacing="10" alignment="CENTER_LEFT" styleClass="barra-herramientas">
+            <TextField fx:id="txtNombre" promptText="Nombre..." prefWidth="150" onAction="#onBuscarNombre"/>
+            <Button text="Buscar" onAction="#onBuscarNombre"/>
+            <Separator orientation="VERTICAL"/>
+            <ComboBox fx:id="cmbPais" promptText="Pais" onAction="#onFiltrarPais"/>
+            <ComboBox fx:id="cmbMano" promptText="Mano" onAction="#onFiltrarMano"/>
+            <Separator orientation="VERTICAL"/>
+            <Label text="Top"/>
+            <Spinner fx:id="spTop" prefWidth="80" editable="true"/>
+            <Button text="Ver top" onAction="#onTop"/>
+            <Separator orientation="VERTICAL"/>
+            <ComboBox fx:id="cmbOrden" promptText="Ordenar por" onAction="#onOrdenar"/>
+            <Separator orientation="VERTICAL"/>
             <Button text="Ver todos" onAction="#onVerTodos"/>
         </HBox>
     </top>
@@ -51,6 +66,22 @@
             <Button text="Nuevo tenista" styleClass="boton-principal" maxWidth="Infinity" onAction="#onNuevo"/>
             <Button fx:id="btnModificar" text="Modificar seleccionado" maxWidth="Infinity" onAction="#onModificar"/>
             <Button fx:id="btnBorrar" text="Borrar seleccionado" maxWidth="Infinity" onAction="#onBorrar"/>
+
+            <Separator/>
+
+            <!-- Estadisticas: edadMedia(), listarPaises() y contarPorPais() -->
+            <Label text="Estadisticas" styleClass="panel-titulo"/>
+            <Label fx:id="lblEdadMedia" text="Edad media: -"/>
+            <Label fx:id="lblNumPaises" text="Paises: -"/>
+            <TableView fx:id="tablaPaises" VBox.vgrow="ALWAYS" prefHeight="150">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="colPaisEst" text="Pais" sortable="false"/>
+                    <TableColumn fx:id="colNumTenistas" text="Tenistas" sortable="false"/>
+                </columns>
+            </TableView>
         </VBox>
     </right>
 
