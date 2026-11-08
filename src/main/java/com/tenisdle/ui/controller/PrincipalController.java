@@ -1,8 +1,8 @@
 package com.tenisdle.ui.controller;
 
-import com.tenisdle.ui.ContextoApp;
-import com.tenisdle.ui.Controlador;
-import com.tenisdle.ui.Navegador;
+import com.tenisdle.ui.nucleo.ContextoApp;
+import com.tenisdle.ui.nucleo.Controlador;
+import com.tenisdle.ui.nucleo.Navegador;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
 

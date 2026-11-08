@@ -1,4 +1,4 @@
-package com.tenisdle.ui;
+package com.tenisdle.ui.nucleo;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

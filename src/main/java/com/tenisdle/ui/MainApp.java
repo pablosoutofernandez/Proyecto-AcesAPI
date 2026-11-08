@@ -2,6 +2,8 @@ package com.tenisdle.ui;
 
 import com.tenisdle.service.JuegoService;
 import com.tenisdle.service.TenistaService;
+import com.tenisdle.ui.nucleo.ContextoApp;
+import com.tenisdle.ui.nucleo.Navegador;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
