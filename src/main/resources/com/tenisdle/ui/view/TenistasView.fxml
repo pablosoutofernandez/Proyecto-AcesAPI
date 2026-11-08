@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
@@ -85,8 +86,13 @@
         </VBox>
     </right>
 
-    <!-- Abajo: numero de resultados -->
+    <!-- Abajo: numero de resultados y exportar esas mismas filas a CSV -->
     <bottom>
-        <Label fx:id="lblResultados" styleClass="estado"/>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="barra-inferior">
+            <Label fx:id="lblResultados" styleClass="estado"/>
+            <!-- Hueco que crece y empuja el boton a la derecha -->
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnExportar" text="Exportar CSV" disable="true" onAction="#onExportarCsv"/>
+        </HBox>
     </bottom>
 </BorderPane>
