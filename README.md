@@ -50,6 +50,11 @@ Diagrama entidad-relación (notación Crow's Foot) de la BD `tenisdle`:
 https://github.com/user-attachments/assets/b6cccfbb-a7da-4b52-abe8-320490745183
 
 
+## Manual para desarrolladores
+
+Consulta el [manual para desarrolladores](docs/MANUAL_DESARROLLADOR.md): explica cómo arrancar el proyecto, cómo está organizado y sus piezas clave, con capturas del código.
+
+
 ## Explicación del reparto de las tareas entre ambos integrantes.
 
 Nos repartimos el trabajo por capas: uno se encargó del backend y el otro del frontend. Así cada uno podía avanzar en su parte sin pisar el código del otro. La conexión entre las dos partes son los servicios Java, que la interfaz llama directamente.
