@@ -1,4 +1,4 @@
-package com.tenisdle.ui;
+package com.tenisdle.ui.nucleo;
 
 import com.tenisdle.model.Tenista;
 import com.tenisdle.service.JuegoService;

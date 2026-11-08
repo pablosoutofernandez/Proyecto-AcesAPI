@@ -1,4 +1,4 @@
-package com.tenisdle.ui;
+package com.tenisdle.ui.nucleo;
 
 /**
  * Lo implementan todos los controladores. El Navegador llama a init()
